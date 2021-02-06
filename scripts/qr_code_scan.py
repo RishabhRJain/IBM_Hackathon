@@ -5,8 +5,12 @@ import datetime
 import imutils
 import time
 import cv2
+import os
 
 def scan_code():
+    if os.path.exists("barcode.csv"):
+        os.remove("barcode.csv")
+
     ap = argparse.ArgumentParser()
     ap.add_argument("-o", "--output", type=str, default="barcodes.csv",
         help="path to output CSV file containing barcodes")

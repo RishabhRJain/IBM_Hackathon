@@ -6,9 +6,11 @@ import csv
 import requests 
 from ics import Calendar, Event
 import csv
+from datetime import timedelta
 
-def generate_ics():
+def get_expiring_items_and_recipes():
     df = pd.read_csv('./barcodes.csv')
+    # df = pd.read_csv('./data.csv')
     today = pd.to_datetime("today")
     df['Manufacturing Date'] = pd.to_datetime(df['Manufacturing Date'])
     df['Expiry Date'] = pd.to_datetime(df['Expiry Date'])
@@ -31,6 +33,10 @@ def generate_ics():
 
     recommended_recipes = [items[0] for items in recommended_recipes][:3]
 
+    return recommended_recipes, ingredients
+def generate_ics():
+    recommended_recipes, ingredients = get_expiring_items_and_recipes()
+
     event_description = ""
     expired_items = pd.read_csv('expiring_items.csv')
 
@@ -40,44 +46,19 @@ def generate_ics():
 
     event_description = event_description + "\n" + "Suggested Recipes: \n" 
     for recipe in recommended_recipes:
-            event_description = event_description + recipe + "\n"
+        event_description = event_description + recipe + "\n"
 
         
     c = Calendar()
     e = Event()
     e.name = "Items expiring this week"
     e.description = event_description
-    e.begin = today
+    today = pd.to_datetime("today")
+    e.begin = today + timedelta(days = 6)
     c.events.add(e)
     c.events
 
     with open('expiry_reminder.ics', 'w') as my_file:
         my_file.writelines(c)
 
-# recommended_recipes = []
-# for d in data['results']:
-#     recommended_recipes.append([d['title'], d['missedIngredientCount']])
-
-# recommended_recipes = sorted(recommended_recipes, key=lambda x: x[1])
-
-# recommended_recipes = [items[0] for items in recommended_recipes][:3]
-
-# event_description = ""
-# with open('data.csv') as csv_file:
-#     csv_reader = csv.reader(csv_file, delimiter=',')
-#     line_count = 0
-#     for row in csv_reader:
-#         if int(row[3]) >= 7:
-#             break
-#         event_description = event_description + str(row[0]) + " in " + str(row[3]) + " days\n"
-
-# c = Calendar()
-# e = Event()
-# e.name = "Items expiring this week"
-# e.description = event_description
-# e.begin = '2021-02-05 20:15:00'
-# c.events.add(e)
-# c.events
-
-# with open('my.ics', 'w') as my_file:
-#     my_file.writelines(c)
+    return ingredients

@@ -9,10 +9,11 @@ import smtplib
 fromEmail = 'foodexasu@gmail.com'
 fromEmailPassword = 'foodex_asu'
 
-toEmail = 'lkarupar@asu.edu'
+# toEmail = 'lkarupar@asu.edu'
 # toEmail = 'suchit@asu.edu'
 
-def send_email():
+def send_email(email_id):
+    toEmail = email_id
     msgRoot = MIMEMultipart('related')
     msgRoot['Subject'] = 'Foodex Expiry Reminder'
     msgRoot['From'] = fromEmail
