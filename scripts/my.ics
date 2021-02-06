@@ -1,0 +1,10 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+DESCRIPTION:orange in 2 days\nberries in 3 days\nBanana in 4 days\n
+DTSTART:20210205T201500Z
+SUMMARY:Items expiring this week
+UID:8241c1bd-9f95-4354-8fbc-10191034af8c@8241.org
+END:VEVENT
+END:VCALENDAR
