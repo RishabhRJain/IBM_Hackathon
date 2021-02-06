@@ -13,6 +13,9 @@ fromEmailPassword = 'foodex_asu'
 # toEmail = 'suchit@asu.edu'
 
 def send_email(email_id):
+    '''
+    Sends email containing the reminder of food items expiring and recipes to given email_id
+    '''
     toEmail = email_id
     msgRoot = MIMEMultipart('related')
     msgRoot['Subject'] = 'Foodex Expiry Reminder'
