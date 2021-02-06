@@ -9,9 +9,6 @@ import csv
 from datetime import timedelta
 
 def get_expiring_items_and_recipes():
-    '''
-    Returns all items expiring in a week and recommends recipes based on that. 
-    '''
     df = pd.read_csv('./barcodes.csv')
     # df = pd.read_csv('./data.csv')
     today = pd.to_datetime("today")
@@ -37,13 +34,7 @@ def get_expiring_items_and_recipes():
     recommended_recipes = [items[0] for items in recommended_recipes][:3]
 
     return recommended_recipes, ingredients
-
-
 def generate_ics():
-    '''
-    creates a calendar file which can be synced to GMAIL, Outlook, etc and returns list of expiring items
-    '''
-
     recommended_recipes, ingredients = get_expiring_items_and_recipes()
 
     event_description = ""

@@ -8,9 +8,6 @@ import cv2
 import os
 
 def scan_code():
-    '''
-    Scans QR code from the consumer to read all data containing items and their expiry dates
-    '''
     if os.path.exists("barcode.csv"):
         os.remove("barcode.csv")
 
@@ -44,10 +41,10 @@ def scan_code():
         cv2.imshow("Barcode Scanner", frame)
         key = cv2.waitKey(15) & 0xFF
 
-        # if len(found) > 0:
-        #     break
-        if key == ord("q"):
+        if len(found) > 0:
             break
+        # if key == ord("q"):
+        #     break
         
     print("[INFO] cleaning up...")
     csv.close()

@@ -10,13 +10,9 @@ fromEmail = 'foodexasu@gmail.com'
 fromEmailPassword = 'foodex_asu'
 
 # toEmail = 'lkarupar@asu.edu'
-# toEmail = 'suchit@asu.edu'
+toEmail = 'mjain45@asu.edu'
 
-def send_email(email_id):
-    '''
-    Sends email containing the reminder of food items expiring and recipes to given email_id
-    '''
-    toEmail = email_id
+def send_email():
     msgRoot = MIMEMultipart('related')
     msgRoot['Subject'] = 'Foodex Expiry Reminder'
     msgRoot['From'] = fromEmail

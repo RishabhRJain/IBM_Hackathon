@@ -1,0 +1,10 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+DESCRIPTION:Bread in 2 days\nBroccoli in 2 days\nBanana in 3 days\nOrange in 3 days\nBerries in 3 days\nKiwi in 3 days\nMilk in 5 days\nChicken in 5 days\n\nSuggested Recipes: \nRoasted Brussels Sprouts With Red Onions and Pancetta\nBLT Sandwich\nVenison Sliders\n
+DTSTART:20210212T144603Z
+SUMMARY:Items expiring this week
+UID:c4590c3f-74c5-4623-bf3d-e60a56cb6733@c459.org
+END:VEVENT
+END:VCALENDAR
