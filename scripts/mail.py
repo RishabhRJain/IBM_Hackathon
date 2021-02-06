@@ -9,7 +9,7 @@ import smtplib
 fromEmail = 'foodexasu@gmail.com'
 fromEmailPassword = 'foodex_asu'
 
-toEmail = 'sdesai20@asu.edu'
+toEmail = 'lkarupar@asu.edu'
 # toEmail = 'suchit@asu.edu'
 
 def send_email():

@@ -4,9 +4,9 @@ import mail
 from flask import Flask
 from flask import request
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
-@app.route('/qr_scan')
+# @app.route('/qr_scan')
 
 def qr_scanner():
     qr_code_scan.scan_code()
@@ -15,6 +15,7 @@ def qr_scanner():
 
 
 if __name__ == '__main__':
-    app.run()
+    # app.run()
+    qr_scanner()
 
     
